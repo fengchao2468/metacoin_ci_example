@@ -5,16 +5,20 @@ pipeline {
         stage('Build') { 
             steps {
                 nodejs('Node 8.x') {
-                    sh 'npm install'
-                    sh 'node_modules/.bin/truffle compile'
+                    ansiColor {
+                        sh 'npm install'
+                        sh 'node_modules/.bin/truffle compile'
+                    }
                 }
             }
         }
         stage('Test') { 
             steps {
                 nodejs('Node 8.x') {
-                    sh 'npm install'
-                    sh 'node_modules/.bin/truffle test'
+                    ansiColor {
+                        sh 'npm install'
+                        sh 'node_modules/.bin/truffle test'
+                    }
                 }
             }
         }
