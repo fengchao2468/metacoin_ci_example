@@ -5,7 +5,7 @@ pipeline {
         stage('Build') { 
             steps {
                 nodejs('Node 8.x') {
-                    ansiColor {
+                    ansiColor('xterm') {
                         sh 'npm install'
                         sh 'node_modules/.bin/truffle compile'
                     }
@@ -15,7 +15,7 @@ pipeline {
         stage('Test') { 
             steps {
                 nodejs('Node 8.x') {
-                    ansiColor {
+                    ansiColor('xterm') {
                         sh 'npm install'
                         sh 'node_modules/.bin/truffle test'
                     }
